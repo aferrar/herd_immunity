@@ -1,0 +1,28 @@
+div.title {
+    font-family: monospace;
+    font-size: 14px;
+    text-align: center;
+}
+
+div.intro {
+    font-family: monospace;
+    font-size: 10px;  
+    text-align: center;
+}
+
+p {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+#population_table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+td {
+    background-color: green;
+    height: 50px;
+    width: 50px;
+}
