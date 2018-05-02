@@ -16,12 +16,19 @@ p {
     width: 75%;
 }
 
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
 #population_table {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
-td {
+td.td {
     background-color: green;
     height: 50px;
     width: 50px;
