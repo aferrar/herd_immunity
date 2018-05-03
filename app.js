@@ -20,21 +20,38 @@ function randomVacc(num) {
             if (y = "healthy" && randomCell > 20) {
                 x[randomCell].classList.remove("healthy");
                 x[randomCell].classList.add("vaccinated");
+            } else {
+                randomVacc(num);
             }
         }
     }
 UpdateStats();
 }
 
+infected_index = [];
 function infectionStart() {
-    var randomCell = randomNumber();
-    var x = document.getElementById("population_table").getElementsByTagName("td");
-    var y = x[randomCell].classList.item(y)
-    if (y = "healthy" && randomCell > 20) {
+        var randomCell = randomNumber();
+        infected_index.push(randomCell.toString());
+        var x = document.getElementById("population_table").getElementsByTagName("td");
+        var y = x[randomCell].classList.item(y)
         x[randomCell].classList.remove("healthy");
         x[randomCell].classList.add("infected");
-    } 
-UpdateStats();
+    
+        // Trying to prevent clicks that don't generate infection color. A little better. Still not // perfect
+    
+        console.log(randomCell);
+        while (y !== "healthy" && randomCell < 20 && infected_index.indexOf(randomCell.toString() !== -1)) {
+            y = x[randomCell].classList.item(y);
+            if (y == "infected" || y == "vaccinated" || y == "dead" || y == "update") {
+                randomCell = randomNumber();
+                y = x[randomCell].classList.item(y);
+                x[randomCell].classList.remove("healthy");
+                x[randomCell].classList.add("infected");
+                console.log(y, randomCell);
+                }
+        }
+        console.log(y, randomCell);
+        UpdateStats();
 }
 
 function UpdateStats() {
