@@ -1,3 +1,6 @@
+var turnNumber = 0;
+
+
 function UpdateStats() {
     var healthy = 0;
     var vaccinated = 0;
@@ -42,6 +45,8 @@ function UpdateStats() {
             x_u[cell].innerHTML = "% Inf: " + percent_infected;
         } else if (cell == 13) {
             x_u[cell].innerHTML = "% Dead: " + percent_dead;
+        } else if (cell == 14) {
+            x_u[cell].innerHTML = "Turn #: " + turnNumber;
         }
     }
 console.log(healthy, vaccinated, infected, dead, percent_healthy, percent_vaccinated, percent_infected, percent_dead);
@@ -77,6 +82,7 @@ function resetCells() {
     for (cell=0; cell < 20; cell++) {
         x[cell].innerHTML = "";
     }
+    turnNumber = 0;
 }
 
 function infectionStart() {
@@ -92,10 +98,12 @@ function infectionStart() {
 UpdateStats();
 }
 
+
+
 function infectionSpread() {
     var x = document.getElementById("population_table").getElementsByTagName("td");
     var cell;
-    for (cell=10; cell < 220; cell++) {
+    for (cell=20; cell < 220; cell++) {
         var y = x[cell].classList.item(y);
         console.log(cell, y);
         if (y == "infected") {
@@ -165,9 +173,24 @@ function infectionSpread() {
             }
         }
     }
-UpdateStats();
+    infectionDeath();
+    UpdateStats();
 }
 
-function turnLogic() {
-    // Turn Logic goes here. Probably going to need to modify this whole script for this part. Save for tomorrow. Good start!
+function infectionDeath() {
+    var x = document.getElementById("population_table").getElementsByTagName("td");
+    var cell;
+    for (cell=20; cell < 220; cell++) {
+        var y = x[cell].classList.item(y);
+        console.log(cell, y);
+        if (y == "infected") {
+            var probDie = Math.floor(Math.random() * 10000);
+            if (probDie < 1000) {
+                    x[cell].classList.remove("infected");
+                    x[cell].classList.add("dead");
+            }
+        }
+    }
+    turnNumber++
+    UpdateStats();
 }
