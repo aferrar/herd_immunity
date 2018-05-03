@@ -21,7 +21,13 @@ function randomVacc(num) {
                 x[randomCell].classList.remove("healthy");
                 x[randomCell].classList.add("vaccinated");
             } else {
-                randomVacc(num);
+                var randomCell = randomNumber();
+                var x = document.getElementById("population_table").getElementsByTagName("td");
+                var y = x[randomCell].classList.item(y)
+                if (y = "healthy" && randomCell > 20) {
+                    x[randomCell].classList.remove("healthy");
+                    x[randomCell].classList.add("vaccinated");
+                }
             }
         }
     }
