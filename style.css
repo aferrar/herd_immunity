@@ -23,6 +23,19 @@ button {
     margin-bottom: 5px;
 }
 
+div.random_vacc {
+    display: inline-block;
+    margin-left: 50%;
+    transform: translateX(-50%); /* use self width which can be unknown */
+    -ms-transform: translateX(-50%); /* For IE9 */
+}
+
+input {
+    width: 20px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
 #population_table {
     margin-left: auto;
     margin-right: auto;
@@ -30,24 +43,30 @@ button {
 }
 td.healthy {
     background-color: green;
-    height: 50px;
-    width: 50px;
+    height: 25px;
+    width: 75px;
 }
 
 td.vaccinated {
     background-color: skyblue;
-    height: 50px;
-    width: 50px;
+    height: 25px;
+    width: 75px;
 }
 
 td.infected {
     background-color: orangered;
-    height: 50px;
-    width: 50px;   
+    height: 25px;
+    width: 75px;   
 }
 
 td.dead {
     background-color: black;
-    height: 50px;
-    width: 50px;
+    height: 25px;
+    width: 75px;
+}
+
+td.update {
+    background-color: white;
+    height: 25px;
+    width: 75px;
 }
