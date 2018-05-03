@@ -31,6 +31,10 @@
     <button class="infect_start" onclick="infectionStart()">Infect Cell</button>
 </div>
     
+<div class="infect_spread">
+    <button class="infect_spread" onclick="infectionSpread()">Start</button>
+</div>
+    
 <div class="reset_cells">
     <button class="reset_cells" onclick="resetCells()">Reset Cells</button>
 </div>
@@ -38,6 +42,38 @@
 <div class="population_table">
     <table id="population_table">
         <tr>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+            <td class="update"></td>
+        </tr>
+        <tr>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
@@ -60,8 +96,6 @@
             <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
-        </tr>
-        <tr>
             <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
@@ -84,8 +118,6 @@
             <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
-        </tr>
-        <tr>
             <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
@@ -108,8 +140,6 @@
             <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
-        </tr>
-        <tr>
             <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
@@ -132,8 +162,6 @@
             <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
-        </tr>
-        <tr>
             <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
@@ -156,8 +184,116 @@
             <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
         </tr>
         <tr>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+        </tr>
+        <tr>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+        </tr>
+        <tr>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+        </tr>
+        <tr>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+        </tr>
+        <tr>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
+            <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
             <td class="healthy"></td>
