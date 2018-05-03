@@ -5,55 +5,6 @@ var vaccinated = 0;
 var infected = 0;
 var dead = 0;
 
-function UpdateStats() {
-    healthy = 0;
-    vaccinated = 0;
-    infected = 0;
-    dead = 0;
-    var x = document.getElementById("population_table").getElementsByTagName("td");
-    var cell;
-    for (cell=20; cell<220; cell++) {
-        var y = x[cell].classList.item(y);
-        if (y == "healthy") {
-            healthy++;
-        } else if (y == "vaccinated") {
-            vaccinated++;
-        } else if (y == "infected") {
-            infected++;
-        } else if (y == "dead") {
-            dead++;
-        }
-    }
-    
-    var percent_healthy = parseInt((healthy / 200) * 100);
-    var percent_vaccinated = parseInt((vaccinated / 200) * 100);
-    var percent_survived = parseInt(((healthy + vaccinated) / 200) * 100);
-    var percent_dead = parseInt((dead / 200) * 100);
-    
-    var x_u = document.getElementById("population_table").getElementsByClassName("update");
-    for (cell = 6 ; cell < 20; cell++) {
-        if (cell == 6) {
-            x_u[cell].innerHTML= "Turn #: " + turnNumber;
-        } else if (cell == 7) {
-            x_u[cell].innerHTML = "Healthy: " + healthy;
-        } else if (cell == 8) {
-            x_u[cell].innerHTML = "Vacc: " + vaccinated;
-        } else if (cell == 9) {
-            x_u[cell].innerHTML = "Infected: " + infected;
-        } else if (cell == 10) {
-            x_u[cell].innerHTML = "Dead: " + dead;
-        } else if (cell == 11) {
-            x_u[cell].innerHTML = "% Healthy: " + percent_healthy;
-        } else if (cell ==12) {
-            x_u[cell].innerHTML = "% Vacc: " + percent_vaccinated;
-        } else if (cell == 13) {
-            x_u[cell].innerHTML = "% Survived: " + percent_survived;
-        } else if (cell == 14) {
-            x_u[cell].innerHTML = "% Dead: " + percent_dead;
-        }
-    }
-}
-
 function randomNumber() {
     return Math.floor(Math.random() * 220)
 }
@@ -85,6 +36,70 @@ function infectionStart() {
     } 
 UpdateStats();
 }
+
+function UpdateStats() {
+    healthy = 0;
+    vaccinated = 0;
+    infected = 0;
+    dead = 0;
+    var x = document.getElementById("population_table").getElementsByTagName("td");
+    var cell;
+    for (cell=20; cell<220; cell++) {
+        var y = x[cell].classList.item(y);
+        if (y == "healthy" || y == "vaccinated") {
+            healthy++;
+        } 
+        
+        if (y == "vaccinated") {
+            vaccinated++;
+        }
+        
+        if (y == "infected") {
+            infected++;
+        }
+        
+        if (y == "dead") {
+            dead++;
+        }
+    }
+    
+    var percent_healthy = parseInt(((healthy + vaccinated) / 200) * 100);
+    var percent_vaccinated = parseInt((vaccinated / 200) * 100);
+    var percent_survived = parseInt(((healthy + vaccinated) / 200) * 100);
+    var percent_dead = parseInt((dead / 200) * 100);
+    
+    var x_u = document.getElementById("population_table").getElementsByClassName("update");
+    for (cell = 6 ; cell < 20; cell++) {
+        if (cell == 6) {
+            x_u[cell].innerHTML= "Turn #: " + turnNumber;
+        } else if (cell == 7) {
+            x_u[cell].innerHTML = "# \<br />Healthy: " + healthy;
+        } else if (cell == 8) {
+            x_u[cell].innerHTML = "# Vaccinated: " + vaccinated;
+        } else if (cell == 9) {
+            x_u[cell].innerHTML = "# \<br />Infected: " + infected;
+        } else if (cell == 10) {
+            x_u[cell].innerHTML = "# \<br />Dead: " + dead;
+        } else if (cell == 11) {
+            x_u[cell].innerHTML = "% Healthy: " + percent_healthy;
+            x_u[cell].style.fontWeight = "bold";
+            x_u[cell].style.color = "green";
+        } else if (cell ==12) {
+            x_u[cell].innerHTML = "% Vaccinated: " + percent_vaccinated;
+            x_u[cell].style.fontWeight = "bold";
+            x_u[cell].style.color = "blue";
+        } else if (cell == 13) {
+            x_u[cell].innerHTML = "% Survived: " + percent_survived;
+            x_u[cell].style.fontWeight = "bold";
+            x_u[cell].style.color = "green";
+        } else if (cell == 14) {
+            x_u[cell].innerHTML = "% \<br />Dead: " + percent_dead;
+            x_u[cell].style.fontWeight = "bold";
+            x_u[cell].style.color = "red";
+        }
+    }
+}
+
 
 function infectionSpread() {
     var x = document.getElementById("population_table").getElementsByTagName("td");
@@ -190,7 +205,7 @@ function infectionDeath() {
                     x[cell].classList.add("dead");
             } else if (probSurvive < 250) {
                     x[cell].classList.remove("infected");
-                    x[cell].classList.add("vaccinated");
+                    x[cell].classList.add("healthy");
             }
         }
     }
