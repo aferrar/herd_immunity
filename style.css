@@ -1,12 +1,12 @@
 div.title {
     font-family: monospace;
-    font-size: 14px;
+    font-size: 24px;
     text-align: center;
 }
 
 div.intro {
     font-family: monospace;
-    font-size: 10px;  
+    font-size: 20px;  
     text-align: center;
 }
 
@@ -28,8 +28,20 @@ button {
     margin-right: auto;
     text-align: center;
 }
-td.td {
+td.healthy {
     background-color: green;
     height: 50px;
     width: 50px;
+}
+
+td.vaccinated {
+    background-color: skyblue;
+    height: 50px;
+    width: 50px;
+}
+
+td.infected {
+    background-color: orangered;
+    height: 50px;
+    width: 50px;   
 }
