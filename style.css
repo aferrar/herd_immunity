@@ -45,3 +45,9 @@ td.infected {
     height: 50px;
     width: 50px;   
 }
+
+td.dead {
+    background-color: black;
+    height: 50px;
+    width: 50px;
+}
