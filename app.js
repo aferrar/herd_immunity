@@ -9,7 +9,7 @@ function UpdateStats() {
     
     var x = document.getElementById("population_table").getElementsByTagName("td");
     var cell;
-    for (cell=20; cell<220; cell++) {
+    for (cell=20; cell<240; cell++) {
         var y = x[cell].classList.item(y);
         if (y == "healthy") {
             healthy++;
@@ -103,7 +103,7 @@ UpdateStats();
 function infectionSpread() {
     var x = document.getElementById("population_table").getElementsByTagName("td");
     var cell;
-    for (cell=20; cell < 220; cell++) {
+    for (cell=20; cell < 240; cell++) {
         var y = x[cell].classList.item(y);
         console.log(cell, y);
         if (y == "infected") {
