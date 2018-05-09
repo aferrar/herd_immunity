@@ -16,27 +16,35 @@
     
 <div class="intro">
     <p>
-        Herd immunity describes the phenomena of protection from infectious diseases which occurs in an infected population with a suitable percentage immune to the infection. In these cases, immune individuals act as buffers to help slow or stop the spread of infection.
+        Herd Immunity describes a form of indirect protection from disease/infection that occurs in populations with a large percentage of immune individuals. In these cases, the immune individuals act as buffers to help slow or stop the spread of infection. This site utilizes HTML, CSS, and JavaScript to help visualize this effect.
     </p>  
     <p>
-        Description of the visualization below goes here.
+        Below you will find 200 <font color="#00b700"><b>green</b></font> cells representing healthy individuals. Use the options below to add <font color="orangered"><b>infected</b></font> and <font color="skyblue"><b>vaccinated</b></font> cells to the sample population. Run the visualization in a single click or step through in turns to see resulting <b>deaths</b>.
     </p>
 </div>
     
-<div class="random_vacc">
+<div class="cell_inputs">
     <input id="rand_vacc_num"/>
 </div>
     
 <div>
-    <button onclick="randomVacc(rand_vacc_num.value)">Add # Vaccinated Cells</button>
+    <button onclick="randomVacc(rand_vacc_num.value)">Add Between 0 and Selected # Vaccinated Cells</button>
 </div>
     
-<div class="infect_start">
-    <button class="infect_start" onclick="infectionStart()">Infect Cell</button>
+<div class="cell_inputs">
+    <input id="rand_inf_num"/>
+</div>
+    
+<div>
+    <button onclick="randomInfection(rand_inf_num.value)">Add Between 0 and Selected # Infected Cells</button>
 </div>
     
 <div class="infect_spread">
-    <button class="infect_spread" onclick="infectionSpread()">Start</button>
+    <button class="infect_spread" onclick="infectionSpread()">Run Herd Immunity Scenario</button>
+</div>
+    
+<div class="infect_spread_stepthru">
+    <button class="infect_spread_stepthru" onclick="infectionSpreadStep()">Click to Step Through Herd Immunity Scenario</button>
 </div>
     
 <div class="reset_cells">
