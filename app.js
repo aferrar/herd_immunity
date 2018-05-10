@@ -235,7 +235,7 @@ function infectionDeath() {
                     x[cell].classList.add("dead");
             } else if (probSurvive < 250) {
                     x[cell].classList.remove("infected");
-                    x[cell].classList.add("healthy");
+                    x[cell].classList.add("vaccinated");
             }
         }
     }
