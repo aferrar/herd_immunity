@@ -28,6 +28,8 @@ div.cell_inputs {
     margin-left: 50%;
     transform: translateX(-50%); /* use self width which can be unknown */
     -ms-transform: translateX(-50%); /* For IE9 */
+    margin-bottom: 5px;
+
 }
 
 input {

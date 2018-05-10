@@ -22,13 +22,13 @@
         Below you will find 200 <font color="#00b700"><b>green</b></font> cells representing healthy individuals. Use the options below to add <font color="orangered"><b>infected</b></font> and <font color="skyblue"><b>vaccinated</b></font> cells to the sample population. Run the visualization in a single click or step through in turns to see resulting <b>deaths</b>.
     </p>
 </div>
-    
+  
 <div class="cell_inputs">
     <input id="rand_vacc_num"/>
 </div>
     
 <div>
-    <button onclick="randomVacc(rand_vacc_num.value)">Add Between 0 and Selected # Vaccinated Cells</button>
+    <button onclick="randomVacc(rand_vacc_num.value)">Enter # Vaccinated Cells</button>
 </div>
     
 <div class="cell_inputs">
@@ -36,15 +36,11 @@
 </div>
     
 <div>
-    <button onclick="randomInfection(rand_inf_num.value)">Add Between 0 and Selected # Infected Cells</button>
+    <button onclick="randomInfection(rand_inf_num.value)">Enter # Infected Cells</button>
 </div>
     
-<div class="infect_spread">
-    <button class="infect_spread" onclick="infectionSpread()">Run Herd Immunity Scenario</button>
-</div>
-    
-<div class="infect_spread_stepthru">
-    <button class="infect_spread_stepthru" onclick="infectionSpreadStep()">Click to Step Through Herd Immunity Scenario</button>
+<div>
+    <button onclick="setInterval(infectionSpread, 1000)">Run Herd Immunity Scenario</button>
 </div>
     
 <div class="reset_cells">
