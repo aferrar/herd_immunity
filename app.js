@@ -218,8 +218,10 @@ function infectionSpread() {
         }
     }
     infectionDeath();
-    turnNumber++;
     UpdateStats();
+    if (infected !== 0) {
+        turnNumber++;
+    }
 };
 
 function infectionDeath() {
