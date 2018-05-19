@@ -97,38 +97,46 @@ function UpdateStats() {
         if (cell == 6) {
             x_u[cell].innerHTML= "Turn #: " + turnNumber;
         } else if (cell == 7) {
-            x_u[cell].innerHTML = "# \<br />Healthy: " + healthy;
+            x_u[cell].innerHTML = "# \<br />Healthy " + healthy;
             x_u[cell].style.fontWeight = "bold";
-            x_u[cell].style.color = "green";
-        } else if (cell == 8) {
-            x_u[cell].innerHTML = "# Vaccinated: " + vaccinated;
-            x_u[cell].style.fontWeight = "bold";
-            x_u[cell].style.color = "blue";
-        } else if (cell == 9) {
-            x_u[cell].innerHTML = "# \<br />Infected: " + infected;
-            x_u[cell].style.fontWeight = "bold";
-            x_u[cell].style.color = "red";
+            x_u[cell].style.color = "#c2c21e";
+            x_u[cell].style.borderColor = "black"
         } else if (cell == 10) {
-            x_u[cell].innerHTML = "# \<br />Dead: " + dead;
+            x_u[cell].innerHTML = "# Vaccinated " + vaccinated;
             x_u[cell].style.fontWeight = "bold";
-            x_u[cell].style.color = "black";
-        } else if (cell == 11) {
-            x_u[cell].innerHTML = "% Healthy: " + percent_healthy;
+            x_u[cell].style.color = "#2990fa";
+            x_u[cell].style.borderColor = "black"
+        } else if (cell == 12) {
+            x_u[cell].innerHTML = "# \<br />Infected " + infected;
             x_u[cell].style.fontWeight = "bold";
-            x_u[cell].style.color = "green";
-        } else if (cell ==12) {
-            x_u[cell].innerHTML = "% Vaccinated: " + percent_vaccinated;
-            x_u[cell].style.fontWeight = "bold";
-            x_u[cell].style.color = "blue";
+            x_u[cell].style.color = "#ee8a1b";
+            x_u[cell].style.borderColor = "black"
         } else if (cell == 13) {
-            x_u[cell].innerHTML = "% Survived: " + percent_survived;
-            x_u[cell].style.fontWeight = "bold";
-            x_u[cell].style.color = "green";
-        } else if (cell == 14) {
-            x_u[cell].innerHTML = "% \<br />Dead: " + percent_dead;
+            x_u[cell].innerHTML = "# \<br />Dead\<br /> " + dead;
             x_u[cell].style.fontWeight = "bold";
             x_u[cell].style.color = "black";
-        }
+            x_u[cell].style.borderColor = "black"
+        } else if (cell == 8) {
+            x_u[cell].innerHTML = "% Healthy " + percent_healthy;
+            x_u[cell].style.fontWeight = "bold";
+            x_u[cell].style.color = "#c2c21e";
+            x_u[cell].style.borderColor = "black"
+        } else if (cell ==11) {
+            x_u[cell].innerHTML = "% Vaccinated " + percent_vaccinated;
+            x_u[cell].style.fontWeight = "bold";
+            x_u[cell].style.color = "#2990fa";
+            x_u[cell].style.borderColor = "black"
+        } else if (cell == 9) {
+            x_u[cell].innerHTML = "% Survived " + percent_survived;
+            x_u[cell].style.fontWeight = "bold";
+            x_u[cell].style.color = "#c2c21e";
+            x_u[cell].style.borderColor = "black"
+        } else if (cell == 14) {
+            x_u[cell].innerHTML = "% \<br />Dead\<br /> " + percent_dead;
+            x_u[cell].style.fontWeight = "bold";
+            x_u[cell].style.color = "black";
+            x_u[cell].style.borderColor = "black"
+        } 
     }
 }
 

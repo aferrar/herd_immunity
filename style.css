@@ -48,28 +48,29 @@ input {
 td {
     overflow: hidden;
     text-overflow: ellipsis;
+    border: solid thin;
 }
 
 td.healthy {
-    background-color: #00b700;
+    background-color: #fbfbad;
     height: 25px;
     width: 75px;
 }
 
 td.vaccinated {
-    background-color: skyblue !important;
+    background-color: #2990fa !important;
     height: 25px;
     width: 75px;
 }
 
 td.infected {
-    background-color: orangered;
+    background-color: #ee8a1b;
     height: 25px;
     width: 75px;   
 }
 
 td.dead {
-    background-color: black;
+    background-color: #2f2c27;
     height: 25px;
     width: 75px;
 }
@@ -80,5 +81,6 @@ td.update {
     width: 75px;
     overflow: hidden;
     text-overflow: ellipsis;
+    border-style: none;
 
 }
