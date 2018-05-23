@@ -14,60 +14,74 @@ var vCells = [];
 var iCells = [];
 // Define function for adding randomly vaccinated cells
 function randomVacc(num) {
-    // Make sure user isn't asking for a number we can't influence
+        // Make sure user doesn't input more cells than we have
     if (num >= 200) {
         alert("You've entered too many cells. Lower your number of vaccinated cells.");
     } else {
-    // Loop through random numbers until we have generated the desired number of cells
+        // While the number of vaccinated cells is less than what is desired
         while (vCells.length < num) {
+            // Pick a random cell
             var randomCell = randomNumber();
-    // x is holding our table cell elements as an array
+            // Define our population table as array x
             var x = document.getElementById("population_table").getElementsByTagName("td");
-    // y is accessing the specific cell from the x array based on our randomly generated number
+            // Define our cell from x as y
             var y = x[randomCell].classList.item(y)
-    // Make sure we haven't already vaccinated this spot
+            // Check to see if the cell is healthy and not in the statistics row
             if (!vCells.includes(randomCell) && y == "healthy" && randomCell > 20) {
-    // Change cell classes
+                // Vaccinate cell
                 x[randomCell].classList.remove("healthy");
                 x[randomCell].classList.add("vaccinated");
                 vCells.push(randomCell);
             } else {
+                // If we already vaccinated the cell or it's in the stats row then we choose a new number
                 randomCell = randomNumber();
                 }
             }
         }
-// Call stat handler to update table statistics
+// Run stat handler function to update table statistics
 UpdateStats();
 }
 
 function randomInfection(num) {
     if (num >= 200) {
+        // Make sure user doesn't input more cells than we have
         alert("You've entered too many cells. Lower your number of infected cells.");
     } else {
+        // While the number of infected cells is less than what is desired
         while (iCells.length < num) {
+            // Pick a random cell
             var randomCell = randomNumber();
+            // Define our population table as array x
             var x = document.getElementById("population_table").getElementsByTagName("td");
+            // Define our cell from x as y
             var y = x[randomCell].classList.item(y)
+            // Check to see if the cell is healthy and not in the statistics row
             if (!iCells.includes(randomCell) && y == "healthy" && randomCell > 20) {
+                // Infect cell
                 x[randomCell].classList.remove("healthy");
                 x[randomCell].classList.add("infected");
+                // Push the cell index to our infection array
                 iCells.push(randomCell);
             } else {
+                // If we already infected the cell or it's in the stats row then we choose a new number
                 randomCell = randomNumber();
                 }
             }
         }
+// Run stat handler function to update table statistics
 UpdateStats();
 }
 
 function UpdateStats() {
+    // Reset global variables
     healthy = 0;
     vaccinated = 0;
     infected = 0;
     dead = 0;
+    // Define our population table as array x
     var x = document.getElementById("population_table").getElementsByTagName("td");
     var cell;
-    
+    // Loop through entire population table and count cell statuses
     for (cell=20; cell<220; cell++) {
         var y = x[cell].classList.item(y);
         if (y == "healthy" || y == "vaccinated") {
@@ -86,12 +100,13 @@ function UpdateStats() {
             dead++;
         }
     }
-    
-    var percent_healthy = parseInt(((healthy + vaccinated) / 200) * 100);
+    // Define and compute percentages for each stat classification
+    var percent_healthy = parseInt((healthy / 200) * 100);
     var percent_vaccinated = parseInt((vaccinated / 200) * 100);
     var percent_survived = parseInt(((healthy + vaccinated) / 200) * 100);
     var percent_dead = parseInt((dead / 200) * 100);
     
+    // Generate statistics row elements directly with HTML injection rather than hardcoding into index.html
     var x_u = document.getElementById("population_table").getElementsByClassName("update");
     for (cell = 6 ; cell < 20; cell++) {
         if (cell == 6) {
@@ -142,10 +157,12 @@ function UpdateStats() {
 
 
 function infectionSpread() {
+    // Define our population table as array x
     var x = document.getElementById("population_table").getElementsByTagName("td");
+    // Loop through entire population table
     for (var cell = 20; cell < 220; cell++) {
         var y = x[cell].classList.item(y);
-        // Logic to fix column overflow error which was stalling turn counter
+        // Spread logic for infection. If we encounter an infected cell we define local variables to their neighbors making sure to avoid boundaries
         if (y == "infected") {
             if (cell < 180) {
                 var z1 = x[cell+1].classList.item(z1);
@@ -163,14 +180,14 @@ function infectionSpread() {
                 var z3 = x[cell+20].classList.item(z3);
                 var z4 = x[cell-20].classList.item(z4);
             } 
-
+            // Check local variable status and either leave alone or infect based on status. Vaccinated cells have 0.05% infection chance
             if (z1 == "vaccinated") {
                 var probSpread = Math.floor(Math.random() * 10000);
                 if (probSpread < 5 && 220 > (cell + 20)) {
                     x[cell+1].classList.remove("vaccinated");
                     x[cell+1].classList.add("infected");
                 }
-
+            // Healthy cells have 25% infection chance
             } else if (z1 == "healthy") {
                 var probSpread = Math.floor(Math.random() * 10000);
                 if (probSpread < 2500 && 220 > (cell + 20)) {
@@ -178,14 +195,14 @@ function infectionSpread() {
                     x[cell+1].classList.add("infected");
                 }
             }
-
+            // Check local variable status and either leave alone or infect based on status. Vaccinated cells have 0.05% infection chance
             if (z2 == "vaccinated") {
                 var probSpread = Math.floor(Math.random() * 10000);
                 if (probSpread < 5) {
                     x[cell-1].classList.remove("vaccinated");
                     x[cell-1].classList.add("infected");
                 }
-
+            // Healthy cells have 25% infection chance
             } else if (z2 == "healthy") {
                 var probSpread = Math.floor(Math.random() * 10000);
                 if (probSpread < 2500) {
@@ -193,14 +210,14 @@ function infectionSpread() {
                     x[cell-1].classList.add("infected");
                 }
             }
-
+            // Check local variable status and either leave alone or infect based on status. Vaccinated cells have 0.05% infection chance
             if (z3 == "vaccinated") {
                 var probSpread = Math.floor(Math.random() * 10000);
                 if (probSpread < 5 && 220 > (cell + 20)) {
                     x[cell+20].classList.remove("vaccinated");
                     x[cell+20].classList.add("infected");
                 }
-
+            // Healthy cells have 25% infection chance
             } else if (z3 == "healthy") {
                 var probSpread = Math.floor(Math.random() * 10000);
                 if (probSpread < 2500 && 220 > (cell + 20)) {
@@ -208,14 +225,14 @@ function infectionSpread() {
                     x[cell+20].classList.add("infected");
                 }
             }
-
+            // Check local variable status and either leave alone or infect based on status. Vaccinated cells have 0.05% infection chance
             if (z4 == "vaccinated") {
                 var probSpread = Math.floor(Math.random() * 10000);
                 if (probSpread < 5) {
                     x[cell-20].classList.remove("vaccinated");
                     x[cell-20].classList.add("infected");
                 }
-
+            // Healthy cells have 25% infection chance
             } else if (z4 == "healthy") {
                 var probSpread = Math.floor(Math.random() * 10000);
                 if (probSpread < 2500) {
@@ -225,24 +242,33 @@ function infectionSpread() {
             }
         }
     }
+    // Run death handler function to decide if infected survive turn or not
     infectionDeath();
+    // Run stat handler function to update table statistics
     UpdateStats();
+    // While there are still infected in the population, continue counting turns
     if (infected !== 0) {
         turnNumber++;
     }
 };
 
 function infectionDeath() {
+    // Define our population table as array x
     var x = document.getElementById("population_table").getElementsByTagName("td");
+    // Loop through entire population table
     for (cell=20; cell < 220; cell++) {
+        // Define our cell from x as y
         var y = x[cell].classList.item(y);
+        // Check for infection
         if (y == "infected") {
+            // Set random number used for probability of death and survival through immunity
             var probDie = Math.floor(Math.random() * 10000);
             var probSurvive = Math.floor(Math.random() * 10000);
-
+            // Infected cells have a 10% chance of death
             if (probDie < 1000) {
                     x[cell].classList.remove("infected");
                     x[cell].classList.add("dead");
+            // Infected cells also have a 2.5% chance of immunity
             } else if (probSurvive < 250) {
                     x[cell].classList.remove("infected");
                     x[cell].classList.add("vaccinated");
